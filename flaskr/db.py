@@ -74,3 +74,16 @@ def get_movies():
         formatted_results.append(new_record)
 
     return formatted_results
+
+def find_movies_by_name(name):
+    db = get_db()
+    sql_command = f"SELECT * FROM movies WHERE title LIKE '%{name}%'"
+    results = db.execute(sql_command).fetchall()
+    formatted_results = []
+    for record in results:
+        new_record = {}
+        for idx, column in enumerate(columns):
+            new_record[column] = record[idx]
+        formatted_results.append(new_record)
+    
+    return formatted_results

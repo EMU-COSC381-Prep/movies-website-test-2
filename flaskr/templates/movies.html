@@ -1,2 +1,10 @@
 <title>Movie Collection</title>
-<h1>{{ movies[0] }}!</h1>
+<h1>Movies</h1>
+<ul>
+{% for movie in movies %}
+    <li>
+        <b>{{ movie['title'] }}</b>: 
+        {{ movie['overview'] }}
+    </li>
+{% endfor %}
+</ul>
